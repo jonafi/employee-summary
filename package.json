@@ -1,0 +1,27 @@
+{
+  "name": "employee-summary",
+  "version": "1.0.0",
+  "description": "Node CLI to create employee profile HTML",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonafi/employee-summary.git"
+  },
+  "author": "John Ferro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jonafi/employee-summary/issues"
+  },
+  "homepage": "https://github.com/jonafi/employee-summary#readme",
+  "dependencies": {
+    "inquirer": "^7.1.0",
+    "jest": "^26.0.1"
+  }
+}
