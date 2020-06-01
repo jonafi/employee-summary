@@ -14,6 +14,87 @@ const render = require("./lib/htmlRenderer");
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
+
+function buildTeam() {
+
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "name",
+            message: "Employee Name:"
+        },
+        {
+            type: "input",
+            name: "id",
+            message: "Employee ID #:"
+        },       
+        {
+            type: "input",
+            name: "email",
+            message: "Employee e-mail:"
+        },       
+        
+
+        {
+            type: "list",
+            message: "Employee Type:",
+            name: "role",
+            choices: [
+                "Intern",
+                "Engineer",
+                "Manager"
+            ]
+        },
+        // {
+        //     type: "checkbox",
+        //     message: "What is your preferred method of communication?",
+        //     name: "contact",
+        //     choices: [
+        //         "email",
+        //         "phone",
+        //         "telekinesis"
+        //     ]
+        // }
+    ]).then(function (data) {
+
+        if(data.role==="Manager"){
+            inquirer.prompt([
+                {
+                    type: "input",
+                    name: "office",
+                    message: "Please enter office number:"
+                },
+            ])
+        }
+
+        else if(data.role==="Engineer"){
+            inquirer.prompt([
+                {
+                    type: "input",
+                    name: "github",
+                    message: "Please enter GitHub username:"
+                },
+            ])
+        }
+
+        else if(data.role==="Intern"){
+            inquirer.prompt([
+                {
+                    type: "input",
+                    name: "school",
+                    message: "Please enter school name:"
+                },
+            ])
+        }
+        
+    })
+
+}
+
+buildTeam();
+
+
+
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
