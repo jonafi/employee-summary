@@ -45,18 +45,9 @@ function buildTeam() {
                 "Manager"
             ]
         },
-        // {
-        //     type: "checkbox",
-        //     message: "What is your preferred method of communication?",
-        //     name: "contact",
-        //     choices: [
-        //         "email",
-        //         "phone",
-        //         "telekinesis"
-        //     ]
-        // }
-    ]).then(function (data) {
 
+    ]).then(function (data) {
+        
         if(data.role==="Manager"){
             inquirer.prompt([
                 {
@@ -92,7 +83,6 @@ function buildTeam() {
 }
 
 buildTeam();
-
 
 
 // After the user has input all employees desired, call the `render` function (required
