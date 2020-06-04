@@ -55,8 +55,7 @@ function buildTeam() {
             ]).then(function(answer){
                 const newManager = new Manager(data.name,data.id, data.email, answer.office)
                 addToTeam(newManager);
-                buildTeam();
-                
+                                
             })
         }
 
@@ -70,7 +69,7 @@ function buildTeam() {
             ]).then(function(answer){
                 const newEngineer = new Engineer(data.name,data.id, data.email, answer.github)
                 addToTeam(newEngineer);
-                buildTeam();
+              
             })
         }
         else if(data.role==="Intern"){
@@ -83,7 +82,7 @@ function buildTeam() {
             ]).then(function(answer){
                 const newIntern = new Intern(data.name,data.id, data.email, answer.school)
                 addToTeam(newIntern);
-                buildPage(employees);
+                
                 
             })
         }
@@ -97,8 +96,28 @@ function buildTeam() {
 buildTeam();
 
 function addToTeam(newMember){
-    employees.push(newMember)
-    console.log(employees);
+    employees.push(newMember);
+    
+    inquirer.prompt([
+        {
+            type: "list",
+            name: "next",
+            message: "What would you like to do now?",
+            choices: [
+                        "Add another team member", 
+                        "Export completed team"
+                    ]
+        },
+    ]).then(function(response){
+        if(response.next==="Add another team member"){
+            buildTeam();
+        }
+        else{
+            buildPage(employees)
+        }
+    });
+
+    
 }
 
 function buildPage(employees) {
