@@ -10,9 +10,6 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-
-// Write code to use inquirer to gather information about the development team members,
-// and to create objects for each team member (using the correct classes as blueprints!)
 let employees =[];
 
 function buildTeam() {
@@ -56,10 +53,9 @@ function buildTeam() {
                 },
             ]).then(function(answer){
                 const newManager = new Manager(data.name,data.id, data.email, answer.office)
-                console.log(newManager);
                 employees.push(newManager);
-              //buildTeam();
-              createTeam(employees);
+                employees.push(newManager);
+                buildPage(employees);
                 
             })
         }
@@ -71,9 +67,17 @@ function buildTeam() {
                     name: "github",
                     message: "Please enter GitHub username:"
                 },
-            ])
+            ]).then(function(answer){
+                const newEngineer = new Engineer(data.name,data.id, data.email, answer.github)
+                employees.push(newEngineer);
+                employees.push(newEngineer);
+                employees.push(newEngineer);
+                employees.push(newEngineer);
+                employees.push(newEngineer);
+                employees.push(newEngineer);
+                buildPage(employees);
+            })
         }
-
         else if(data.role==="Intern"){
             inquirer.prompt([
                 {
@@ -81,21 +85,26 @@ function buildTeam() {
                     name: "school",
                     message: "Please enter school name:"
                 },
-            ])
+            ]).then(function(answer){
+                const newIntern = new Intern(data.name,data.id, data.email, answer.school)
+                employees.push(newIntern);
+                //console.log(employees);
+                buildPage(employees);
+                
+            })
         }
-        //console.log(data);
+        
 
     })
-    //console.log(data);
-//createTeam(employees);
+    
+
 }
-//console.log(data);
+
 
 buildTeam();
+//console.log(employees);
 
-
-function createTeam(employees) {
-    // Create the output directory if the output path doesn't exist
+function buildPage(employees) {
     if (!fs.existsSync(OUTPUT_DIR)) {
       fs.mkdirSync(OUTPUT_DIR)
     }
