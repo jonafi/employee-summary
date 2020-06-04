@@ -51,11 +51,11 @@ function buildTeam() {
                     name: "office",
                     message: "Please enter office number:"
                 },
+               
             ]).then(function(answer){
                 const newManager = new Manager(data.name,data.id, data.email, answer.office)
-                employees.push(newManager);
-                employees.push(newManager);
-                buildPage(employees);
+                addToTeam(newManager);
+                buildTeam();
                 
             })
         }
@@ -69,13 +69,8 @@ function buildTeam() {
                 },
             ]).then(function(answer){
                 const newEngineer = new Engineer(data.name,data.id, data.email, answer.github)
-                employees.push(newEngineer);
-                employees.push(newEngineer);
-                employees.push(newEngineer);
-                employees.push(newEngineer);
-                employees.push(newEngineer);
-                employees.push(newEngineer);
-                buildPage(employees);
+                addToTeam(newEngineer);
+                buildTeam();
             })
         }
         else if(data.role==="Intern"){
@@ -87,8 +82,7 @@ function buildTeam() {
                 },
             ]).then(function(answer){
                 const newIntern = new Intern(data.name,data.id, data.email, answer.school)
-                employees.push(newIntern);
-                //console.log(employees);
+                addToTeam(newIntern);
                 buildPage(employees);
                 
             })
@@ -96,13 +90,16 @@ function buildTeam() {
         
 
     })
-    
 
 }
 
 
 buildTeam();
-//console.log(employees);
+
+function addToTeam(newMember){
+    employees.push(newMember)
+    console.log(employees);
+}
 
 function buildPage(employees) {
     if (!fs.existsSync(OUTPUT_DIR)) {
