@@ -13,7 +13,7 @@ const render = require("./lib/htmlRenderer");
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
-
+let employees =[];
 
 function buildTeam() {
 
@@ -47,7 +47,6 @@ function buildTeam() {
         },
 
     ]).then(function (data) {
-        
         if(data.role==="Manager"){
             inquirer.prompt([
                 {
@@ -55,7 +54,14 @@ function buildTeam() {
                     name: "office",
                     message: "Please enter office number:"
                 },
-            ])
+            ]).then(function(answer){
+                const newManager = new Manager(data.name,data.id, data.email, answer.office)
+                console.log(newManager);
+                employees.push(newManager);
+              //buildTeam();
+              createTeam(employees);
+                
+            })
         }
 
         else if(data.role==="Engineer"){
@@ -77,12 +83,24 @@ function buildTeam() {
                 },
             ])
         }
-        
-    })
+        //console.log(data);
 
+    })
+    //console.log(data);
+//createTeam(employees);
 }
+//console.log(data);
 
 buildTeam();
+
+
+function createTeam(employees) {
+    // Create the output directory if the output path doesn't exist
+    if (!fs.existsSync(OUTPUT_DIR)) {
+      fs.mkdirSync(OUTPUT_DIR)
+    }
+    fs.writeFileSync(outputPath, render(employees), "utf-8");
+  }
 
 
 // After the user has input all employees desired, call the `render` function (required
