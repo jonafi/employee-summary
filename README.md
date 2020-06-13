@@ -37,7 +37,7 @@ Answer the prompts. When complete, the new team.html document can be found in th
 [![Demo Video](vid-thumb.jpg)](https://drive.google.com/file/d/1_nU9EyZzgs2aYCu1p0Aj3yqYlYkQVISN/view)
 
 ### Sample File Preview 
-![Visual Studio Code Preview](/images/xxx.png)
+[![Sample File](sample-thumb.jpg)](/team.html)
 
 
 ## License
