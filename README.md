@@ -10,7 +10,6 @@ A Node CLI to create employee profile HTML page
 * [Usage](#usage)
 * [License](#license)
 * [Contributing](#contributing)
-* [Tests](#tests)
 * [Questions](#questions)
 * [Additional-Badges](#additional-badges)
 
@@ -45,8 +44,6 @@ Answer the prompts. When complete, the new team.html document can be found in th
 ![alt text](https://img.shields.io/github/license/jonafi/good-readme.svg "License")
 
 
-## Tests
-xxx
 
 ## Additional-Badges
 
