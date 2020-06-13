@@ -9,7 +9,6 @@ A Node CLI to create employee profile HTML page
 * [Installation](#installation)
 * [Usage](#usage)
 * [License](#license)
-* [Contributing](#contributing)
 * [Questions](#questions)
 * [Additional-Badges](#additional-badges)
 
