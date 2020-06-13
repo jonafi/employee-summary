@@ -34,7 +34,7 @@ Navigate to the good-readme folder and enter the following command:
 Answer the prompts. When complete, the new team.html document can be found in the output folder.
 
 ### Demo Video
-[![Demo Video](/images/xxx.jpg)](https://drive.google.com/file/d/xxx/view)
+[![Demo Video]](https://drive.google.com/file/d/1_nU9EyZzgs2aYCu1p0Aj3yqYlYkQVISN/view)
 
 ### Sample File Preview 
 ![Visual Studio Code Preview](/images/xxx.png)
